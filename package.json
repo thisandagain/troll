@@ -1,7 +1,7 @@
 {
   "author": "Andrew Sliwinski <andrewsliwinski@acm.org> (http://andrewsliwinski.com)",
   "name": "troll",
-  "description": "Language sentiment analysis... for trolls.",
+  "description": "Language sentiment analysis and neural networks... for trolls.",
   "version": "0.0.1",
   "homepage": "https://github.com/thisandagain/troll",
   "repository": {
