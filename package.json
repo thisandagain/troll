@@ -1,0 +1,29 @@
+{
+  "author": "Andrew Sliwinski <andrewsliwinski@acm.org> (http://andrewsliwinski.com)",
+  "name": "troll",
+  "description": "Language sentiment analysis... for trolls.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/thisandagain/troll",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thisandagain/troll.git"
+  },
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "tap ./test/*.js"
+  },
+  "dependencies": {
+    "async": "~0.1.22",
+    "underscore": "~1.4.1",
+    "Sentimental": "0.0.2",
+    "redis": "~0.8.1"
+  },
+  "devDependencies": {
+    "tap": "~0.3.1",
+    "codebux": "~0.1.2"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": ">=0.6"
+  }
+}
