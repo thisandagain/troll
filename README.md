@@ -40,7 +40,7 @@ troll.classify('user123', function (err, result) {
 });
 ```
 
-The value returned for the `troll` key represents the probability of that user being a troll. In other words, a value of `0` would represent a particularly friendly user, while a value of `1` would be... uh, Ted Dziuba?
+The value returned for the `troll` key represents the probability of that user being a troll. In other words, a value of `0` would likely represent a particularly friendly user, while a value of `1` would be... uh, Ted Dziuba?
 
 ---
 
