@@ -1,9 +1,10 @@
 ## troll
 #### Language sentiment analysis and neural networks... for trolls.
 
-Troll is a tool for performing sentiment analysis (ie: "is this naughty or nice") on arbitrary blocks of text and associating it with a unique user. Using this data, combined with a rather naivé neural network and some simple training, users can be reliably classified as "trolls".
+Troll is a tool for performing sentiment analysis (ie: "is this naughty or nice") on arbitrary blocks of text and associating it with a unique user. Using this data, combined with a rather naivé neural network and some training, users can be classified as "trolls".
 
 ### Installation
+Troll uses [Redis](http://redis.io/) for data storage. Once Redis is up and running, you can install Troll using NPM:
 ```bash
 npm install troll
 ```
@@ -16,30 +17,37 @@ troll.analyze('This is great!', 'user123', function (err, result) {
     console.log(result);    // 6
 });
 
-troll.analyze('I hate this... totally stupid.', 'user456', function (err, result) {
+troll.analyze('I hate this stupid thing.', 'user456', function (err, result) {
     console.log(result);    // -10 
 });
 ```
 
-### User Classification
+### Training
+Before attempting to classify a user, you'll need to train Troll. You can specify your own training data or use a basic set that is included. To load the included training set:
 ```javascript
-troll.classify('user123', function (err, result) {
-    console.dir(result);    // { user: 'user123', total: 24, sum: 10, troll: false }
+troll.train(function (err, result) {
+    console.dir(result);    // { error: 0.005, iterations: 72 }
 });
 ```
 
-### Training
+### User Classification
+Once trained, now you can classify:
 ```javascript
-troll.train('user456', true, function (err) {
-    console.log('The neural network has been told that user456 is a "troll"'); 
+troll.classify('user123', function (err, result) {
+    console.dir(result);    // { total: 9, sum: 36, troll: 0.010294962292857838 }
 });
 ```
+
+The value returned for the `troll` key represents the probability of that user being a troll. A value close to zero means that they are most likely not a troll, while a number closer to one means that they are.
 
 ---
 
 ### Redis Connection Options
-```javascript
-
+Troll uses your environment by looking at `process.env` for connection settings. If none are found, default [Redis](http://redis.io/) connection settings are used:
+```
+TROLL_HOST: null
+TROLL_PORT: null
+TROLL_PASS: null
 ```
 
 ---
