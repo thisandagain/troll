@@ -1,6 +1,8 @@
 ## troll
 #### Language sentiment analysis and neural networks... for trolls.
 
+[![Build Status](https://secure.travis-ci.org/thisandagain/troll.png)](http://travis-ci.org/thisandagain/troll)
+
 Troll is a tool for performing sentiment analysis (ie: "is this naughty or nice") on arbitrary blocks of text and associating it with a unique user. Using this data, combined with a rather naivé neural network and some training, users can be classified as "trolls".
 
 ### Installation
