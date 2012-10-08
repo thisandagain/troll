@@ -60,6 +60,5 @@ npm test
 ```
 
 ### Credits
-- Sentiment analysis using [AFINN](http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010) by [thinkroth](https://github.com/thinkroth)
-- Neural network by [harthur](https://github.com/harthur)
+- Neural network by [Heather Arthur](https://github.com/harthur)
 - Training data inferred and subsequently condensed by scraping [Boing Boing's](http://boingboing.net) reader comments.

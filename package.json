@@ -14,10 +14,10 @@
   },
   "dependencies": {
     "async": "~0.1.22",
-    "underscore": "~1.4.1",
-    "Sentimental": "0.0.2",
     "redis": "~0.8.1",
-    "brain": "~0.6.0"
+    "brain": "~0.6.0",
+    "sentiment": "~0.1.0",
+    "lodash": "~0.8.1"
   },
   "devDependencies": {
     "tap": "~0.3.1",
