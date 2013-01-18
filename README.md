@@ -16,11 +16,11 @@ npm install troll
 var troll   = require('troll');
 
 troll.analyze('This is totally awesome!', 'user123', function (err, result) {
-    console.log(result);    // 4
+    console.log(result);    // 2.5
 });
 
 troll.analyze('This is lame.', 'user456', function (err, result) {
-    console.log(result);    // -2
+    console.log(result);    // -1.333
 });
 ```
 
@@ -43,6 +43,19 @@ troll.classify('user123', function (err, result) {
 The value returned for the `troll` key represents the probability of that user being a troll. In other words, a value of `0` would likely represent a particularly friendly user, while a value of `1` would be... uh, Ted Dziuba?
 
 ---
+
+### Modifing The Sentiment Engine
+The underlying [sentiment analysis module](https://github.com/thisandagain/sentiment) supports "injecting" additional key/value pairs. This is useful in certain situations where you may want to exclude or even blacklist certain words based on a particular use case. For example:
+```javascript
+troll.inject({
+    'stupid': -5,
+    'lame': -5
+});
+
+troll.analyze('This is totally stupid and lame!', 'user123', function (err, result) {
+    console.log(result);    // -5.833
+});
+```
 
 ### Redis Connection Options
 Troll uses your environment by looking at `process.env` for connection settings. If none are found, default [Redis](http://redis.io/) connection settings are used:
