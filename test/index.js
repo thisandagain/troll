@@ -31,6 +31,13 @@ async.auto({
     },
 
     negative:   function (callback) {
+        // Amplify & override AFINN definition
+        troll.inject({
+            'stupid': -5,
+            'lame': -5
+        });
+
+        // Perform analysis operation
         troll.analyze('This is totally stupid and lame!', '1', callback);
     },
 
@@ -48,6 +55,7 @@ async.auto({
             t.type(troll.analyze, 'function', 'Method should be a function');
             t.type(troll.classify, 'function', 'Method should be a function');
             t.type(troll.train, 'function', 'Method should be a function');
+            t.type(troll.inject, 'function', 'Method should be a function');
             t.end();
         });
 
@@ -58,11 +66,11 @@ async.auto({
 
         test('Analyze method', function (t) {
             t.type(obj.analyze, 'number', 'Results should be a number');
-            t.equal(obj.analyze, -2, 'Expected result');
+            t.equal(obj.analyze, -1.3333333333333333, 'Expected result');
             t.type(obj.positive, 'number', 'Results should be a number');
-            t.equal(obj.positive, 4, 'Expected result');
+            t.equal(obj.positive, 2.5, 'Expected result');
             t.type(obj.negative, 'number', 'Results should be a number');
-            t.equal(obj.negative, -4, 'Expected result');
+            t.equal(obj.negative, -5.833333333333333, 'Expected result');
             t.end();
         });
 
